@@ -7,7 +7,16 @@ jobs:
     name: Build for macOS
     runs-on: macos-10.15
     steps:
-    - name: Install requirements
-      run: brew install cmake svn autoconf automake bison libtool pkg-config yasm
-      
-      
+      - name: Install requirements
+        run: brew install cmake svn autoconf automake bison libtool pkg-config yasm
+      - name: Prepare folders
+        run: mkdir -p $GITHUB_WORKSPACE/blender-git
+      - name: Check out repository code
+        uses: actions/checkout@v2
+        with:
+          path: $GITHUB_WORKSPACE/blender-git/blender
+      - name: Build default
+        run: |
+          cd $GITHUB_WORKSPACE/blender-git/blender
+          make update
+          make
