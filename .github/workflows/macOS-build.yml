@@ -7,8 +7,6 @@ jobs:
     name: Build for macOS
     runs-on: macos-10.15
     steps:
-    - name: Install brew
-      run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     - name: Install requirements
       run: brew install cmake svn autoconf automake bison libtool pkg-config yasm
       
