@@ -1,0 +1,14 @@
+name: macOS-build
+
+on: push
+
+defaults:
+  
+jobs:
+  macos-build:
+    name: Build for macOS
+    runs-on: macos-10.15
+    steps:
+    - name: Install requirements
+      run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+      
