@@ -10,13 +10,13 @@ jobs:
       - name: Install requirements
         run: brew install cmake svn autoconf automake bison libtool pkg-config yasm
       - name: Prepare folders
-        run: mkdir -p $GITHUB_WORKSPACE/blender-git
+        run: mkdir -p "$HOME/blender-git"
       - name: Check out repository code
         uses: actions/checkout@v2
         with:
-          path: $GITHUB_WORKSPACE/blender-git/blender
+          path: "$HOME/blender-git/blender"
       - name: Build default
         run: |
-          cd $GITHUB_WORKSPACE/blender-git/blender
+          cd "$HOME/blender-git/blender"
           make update
           make
